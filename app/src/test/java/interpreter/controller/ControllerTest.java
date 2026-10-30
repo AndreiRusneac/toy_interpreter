@@ -27,7 +27,7 @@ class ControllerTest {
 
     private static PrgState run(IStmt program) throws MyException {
         PrgState state = newState(program);
-        new Controller(new Repository(state), false).allStep(); // display off
+        new Controller(new Repository(state), false).allStep();
         return state;
     }
 
@@ -59,7 +59,7 @@ class ControllerTest {
         PrgState state = newState(Examples.EX1);
         Controller controller = new Controller(new Repository(state), false);
 
-        controller.oneStep(state); // S1 only: the CompStmt is split, nothing is declared yet
+        controller.oneStep(state);
 
         assertEquals("{}", state.getSymTable().toString());
         assertInstanceOf(VarDeclStmt.class, state.getExeStack().pop());
@@ -79,7 +79,6 @@ class ControllerTest {
 
     @Test
     void runtimeErrorStopsExecution() {
-        // int a; a = true  -> type mismatch
         IStmt bad = new CompStmt(new VarDeclStmt("a", new IntType()),
                 new AssignStmt("a", new ValueExp(new BoolValue(true))));
         assertThrows(StatementException.class, () -> run(bad));

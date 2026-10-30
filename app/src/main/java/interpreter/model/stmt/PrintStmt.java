@@ -3,8 +3,6 @@ package interpreter.model.stmt;
 import interpreter.exceptions.MyException;
 import interpreter.model.PrgState;
 import interpreter.model.exp.IExp;
-
-/** Rule S4: print(Exp). Appends the value of Exp to Out. */
 public record PrintStmt(IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {

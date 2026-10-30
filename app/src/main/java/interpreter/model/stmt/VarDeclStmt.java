@@ -4,7 +4,6 @@ import interpreter.exceptions.StatementException;
 import interpreter.model.PrgState;
 import interpreter.model.type.IType;
 
-/** Rule S3: Type Id. Adds Id -> default(Type) to the SymTable. */
 public record VarDeclStmt(String name, IType type) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws StatementException {

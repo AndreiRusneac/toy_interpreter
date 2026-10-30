@@ -26,8 +26,6 @@ public class MyStack<T> implements IStack<T> {
     public boolean isEmpty() {
         return stack.isEmpty();
     }
-
-    /** Top first, as in the lab notation: {s1 | s2 | s3}. ArrayDeque iterates from the top. */
     @Override
     public String toString() {
         return stack.stream()

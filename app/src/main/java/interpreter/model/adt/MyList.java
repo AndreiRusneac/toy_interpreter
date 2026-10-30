@@ -27,7 +27,6 @@ public class MyList<T> implements IList<T> {
         return list.size();
     }
 
-    /** Lab notation: {1, 2}. */
     @Override
     public String toString() {
         return list.stream()

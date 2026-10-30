@@ -5,7 +5,6 @@ import interpreter.model.PrgState;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Stores the program states in a list; for now there is exactly one (one thread). */
 public class Repository implements IRepository {
     private final List<PrgState> prgStates = new ArrayList<>();
 

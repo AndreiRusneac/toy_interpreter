@@ -6,10 +6,6 @@ import interpreter.model.adt.IDictionary;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IValue;
 
-/**
- * Rule E4: both operands must be bool; the result is bool.
- * Both operands are always evaluated (no short-circuit), as the rule says "evaluate Exp1, then Exp2".
- */
 public record LogicExp(LogicOp op, IExp left, IExp right) implements IExp {
     @Override
     public IValue eval(IDictionary<String, IValue> symTable) throws MyException {

@@ -6,7 +6,6 @@ import interpreter.model.PrgState;
 import interpreter.model.exp.IExp;
 import interpreter.model.value.IValue;
 
-/** Rule S2: Id = Exp. The variable must be declared and the types must match. */
 public record AssignStmt(String id, IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {
