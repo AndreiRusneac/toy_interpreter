@@ -12,7 +12,6 @@ import interpreter.repository.Repository;
 import java.util.List;
 import java.util.Scanner;
 
-/** Text menu: select one of the example programs, run it completely. Errors never crash the menu. */
 public class TextMenu {
     private final Scanner scanner = new Scanner(System.in);
     private final List<IStmt> programs;
@@ -70,7 +69,6 @@ public class TextMenu {
             System.out.println("Select a program first.");
             return;
         }
-        // A fresh state for every run, so the same program can be run again.
         PrgState state = new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), selected);
         Controller controller = new Controller(new Repository(state), true);
         try {
