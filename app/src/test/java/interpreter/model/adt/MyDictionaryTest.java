@@ -1,6 +1,8 @@
 package interpreter.model.adt;
 
 import interpreter.exceptions.ADTException;
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,5 +43,30 @@ class MyDictionaryTest {
     @Test
     void updateOfMissingKeyThrows() {
         assertThrows(ADTException.class, () -> dict.update("a", 1));
+    }
+
+    @Test
+    void removeDeletesTheKey() throws ADTException {
+        dict.put("a", 5);
+        dict.remove("a");
+        assertFalse(dict.isDefined("a"));
+    }
+
+    @Test
+    void removeOfMissingKeyThrows() {
+        assertThrows(ADTException.class, () -> dict.remove("a"));
+    }
+
+    @Test
+    void toMapContainsTheEntries() {
+        dict.put("a", 1);
+        dict.put("b", 2);
+        assertEquals(Map.of("a", 1, "b", 2), dict.toMap());
+    }
+
+    @Test
+    void toMapIsReadOnly() {
+        dict.put("a", 1);
+        assertThrows(UnsupportedOperationException.class, () -> dict.toMap().put("b", 2));
     }
 }

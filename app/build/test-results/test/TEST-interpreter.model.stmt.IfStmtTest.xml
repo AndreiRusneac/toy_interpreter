@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.stmt.IfStmtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.063Z" hostname="The-Machine.local" time="0.001">
+<testsuite name="interpreter.model.stmt.IfStmtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:34:16.475Z" hostname="The-Machine.local" time="0.001">
   <properties/>
   <testcase name="falseConditionPushesElseBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.0"/>
   <testcase name="trueConditionPushesThenBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.0"/>

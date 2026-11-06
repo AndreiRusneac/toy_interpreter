@@ -17,8 +17,7 @@ class StringValueTest {
 
     @Test
     void declaredStringVariableGetsEmptyString() throws MyException {
-        PrgState state = new PrgState(new interpreter.model.adt.MyStack<>(),
-                new interpreter.model.adt.MyDictionary<>(), new interpreter.model.adt.MyList<>(), new NopStmt());
+        PrgState state = PrgState.of(new NopStmt());
         new VarDeclStmt("s", new StringType()).execute(state);
         assertEquals(new StringValue(""), state.getSymTable().lookup("s"));
     }

@@ -3,9 +3,6 @@ package interpreter.controller;
 import interpreter.exceptions.MyException;
 import interpreter.exceptions.StatementException;
 import interpreter.model.PrgState;
-import interpreter.model.adt.MyDictionary;
-import interpreter.model.adt.MyList;
-import interpreter.model.adt.MyStack;
 import interpreter.model.exp.ValueExp;
 import interpreter.model.stmt.AssignStmt;
 import interpreter.model.stmt.CompStmt;
@@ -22,12 +19,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
     private static PrgState newState(IStmt program) {
-        return new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(), program);
+        return PrgState.of(program);
     }
 
     private static PrgState run(IStmt program) throws MyException {
         PrgState state = newState(program);
-        new Controller(new Repository(state), false).allStep();
+        new Controller(new Repository(state), false).allStep(); // display off
         return state;
     }
 
@@ -59,7 +56,7 @@ class ControllerTest {
         PrgState state = newState(Examples.EX1);
         Controller controller = new Controller(new Repository(state), false);
 
-        controller.oneStep(state);
+        controller.oneStep(state); // S1 only: the CompStmt is split, nothing is declared yet
 
         assertEquals("{}", state.getSymTable().toString());
         assertInstanceOf(VarDeclStmt.class, state.getExeStack().pop());
@@ -79,6 +76,7 @@ class ControllerTest {
 
     @Test
     void runtimeErrorStopsExecution() {
+        // int a; a = true  -> type mismatch
         IStmt bad = new CompStmt(new VarDeclStmt("a", new IntType()),
                 new AssignStmt("a", new ValueExp(new BoolValue(true))));
         assertThrows(StatementException.class, () -> run(bad));

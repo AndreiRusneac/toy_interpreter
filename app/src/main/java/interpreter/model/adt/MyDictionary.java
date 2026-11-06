@@ -34,6 +34,22 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
         }
         map.put(key, value);
     }
+
+    @Override
+    public void remove(K key) throws ADTException {
+        if (!map.containsKey(key)) {
+            throw new ADTException("key " + key + " is not in the dictionary");
+        }
+        map.remove(key);
+    }
+
+    /** Map.copyOf: callers can read the content but cannot change the dictionary through it. */
+    @Override
+    public Map<K, V> toMap() {
+        return Map.copyOf(map);
+    }
+
+    /** Lab notation: {v -> 2, a -> false}. */
     @Override
     public String toString() {
         return map.entrySet().stream()
