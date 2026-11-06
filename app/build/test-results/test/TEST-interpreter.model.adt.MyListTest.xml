@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:34:16.461Z" hostname="The-Machine.local" time="0.002">
+<testsuite name="interpreter.model.adt.MyListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:36:22.742Z" hostname="The-Machine.local" time="0.002">
   <properties/>
   <testcase name="getOutOfBoundsThrows()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
   <testcase name="toListKeepsInsertionOrder()" classname="interpreter.model.adt.MyListTest" time="0.0"/>

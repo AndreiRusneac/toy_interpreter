@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.exp.RelationalExpTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:34:16.469Z" hostname="The-Machine.local" time="0.004">
+<testsuite name="interpreter.model.exp.RelationalExpTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:36:22.751Z" hostname="The-Machine.local" time="0.004">
   <properties/>
-  <testcase name="lessOrEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="lessOrEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
   <testcase name="equal()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
   <testcase name="greaterOrEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
   <testcase name="worksWithVariables()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
   <testcase name="greaterThan()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
-  <testcase name="toStringIsInfix()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
-  <testcase name="notEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="toStringIsInfix()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="notEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
   <testcase name="nonIntegerFirstOperandThrows()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
   <testcase name="nonIntegerSecondOperandThrows()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
   <testcase name="lessThan()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
