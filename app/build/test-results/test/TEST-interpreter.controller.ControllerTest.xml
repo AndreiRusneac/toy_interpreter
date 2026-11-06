@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.controller.ControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.265Z" hostname="The-Machine.local" time="0.02">
+<testsuite name="interpreter.controller.ControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.021Z" hostname="The-Machine.local" time="0.02">
   <properties/>
-  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.008"/>
-  <testcase name="example2PrintsEighteen()" classname="interpreter.controller.ControllerTest" time="0.005"/>
-  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.01"/>
+  <testcase name="example2PrintsEighteen()" classname="interpreter.controller.ControllerTest" time="0.003"/>
+  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.0"/>
   <testcase name="example1PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.0"/>
-  <testcase name="oneStepAppliesExactlyOneRule()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="oneStepOnEmptyStackThrows()" classname="interpreter.controller.ControllerTest" time="0.0"/>
+  <testcase name="oneStepAppliesExactlyOneRule()" classname="interpreter.controller.ControllerTest" time="0.0"/>
+  <testcase name="oneStepOnEmptyStackThrows()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

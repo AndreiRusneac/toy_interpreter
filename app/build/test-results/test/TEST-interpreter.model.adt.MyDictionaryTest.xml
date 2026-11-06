@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyDictionaryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.286Z" hostname="The-Machine.local" time="0.005">
+<testsuite name="interpreter.model.adt.MyDictionaryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.044Z" hostname="The-Machine.local" time="0.003">
   <properties/>
-  <testcase name="updateOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.003"/>
+  <testcase name="updateOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>
   <testcase name="missingKeyIsNotDefined()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="putThenLookupReturnsTheValue()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="updateReplacesTheValue()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="interpreter.model.exp.RelationalExpTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.057Z" hostname="The-Machine.local" time="0.003">
+  <properties/>
+  <testcase name="lessOrEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="equal()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
+  <testcase name="greaterOrEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="worksWithVariables()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="greaterThan()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="toStringIsInfix()" classname="interpreter.model.exp.RelationalExpTest" time="0.001"/>
+  <testcase name="notEqual()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="nonIntegerFirstOperandThrows()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="nonIntegerSecondOperandThrows()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <testcase name="lessThan()" classname="interpreter.model.exp.RelationalExpTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

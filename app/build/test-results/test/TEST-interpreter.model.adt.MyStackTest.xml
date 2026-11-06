@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyStackTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.293Z" hostname="The-Machine.local" time="0.002">
+<testsuite name="interpreter.model.adt.MyStackTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.050Z" hostname="The-Machine.local" time="0.001">
   <properties/>
-  <testcase name="newStackIsEmpty()" classname="interpreter.model.adt.MyStackTest" time="0.001"/>
+  <testcase name="newStackIsEmpty()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
   <testcase name="toStringShowsTopFirst()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
   <testcase name="popOnEmptyStackThrows()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
-  <testcase name="popReturnsElementsInLifoOrder()" classname="interpreter.model.adt.MyStackTest" time="0.001"/>
+  <testcase name="popReturnsElementsInLifoOrder()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyListTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.291Z" hostname="The-Machine.local" time="0.002">
+<testsuite name="interpreter.model.adt.MyListTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.047Z" hostname="The-Machine.local" time="0.002">
   <properties/>
   <testcase name="getOutOfBoundsThrows()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
-  <testcase name="newListHasSizeZero()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
+  <testcase name="newListHasSizeZero()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
   <testcase name="addKeepsInsertionOrder()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
   <testcase name="toStringUsesBraces()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

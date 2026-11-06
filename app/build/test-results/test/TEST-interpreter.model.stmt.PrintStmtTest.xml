@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.stmt.PrintStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.306Z" hostname="The-Machine.local" time="0.001">
+<testsuite name="interpreter.model.stmt.PrintStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:33:33.065Z" hostname="The-Machine.local" time="0.0">
   <properties/>
-  <testcase name="evaluationErrorIsPropagated()" classname="interpreter.model.stmt.PrintStmtTest" time="0.001"/>
+  <testcase name="evaluationErrorIsPropagated()" classname="interpreter.model.stmt.PrintStmtTest" time="0.0"/>
   <testcase name="appendsValuesToOutInOrder()" classname="interpreter.model.stmt.PrintStmtTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
