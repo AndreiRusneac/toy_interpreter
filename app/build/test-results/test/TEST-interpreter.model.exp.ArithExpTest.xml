@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="interpreter.model.exp.ArithExpTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:31:26.295Z" hostname="The-Machine.local" time="0.003">
+  <properties/>
+  <testcase name="subtraction()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="divisionByZeroThrows()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="addition()" classname="interpreter.model.exp.ArithExpTest" time="0.001"/>
+  <testcase name="respectsOperatorPrecedenceEncodedInTheTree()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="multiplication()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="nonIntegerFirstOperandThrows()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="integerDivision()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <testcase name="nonIntegerSecondOperandThrows()" classname="interpreter.model.exp.ArithExpTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
