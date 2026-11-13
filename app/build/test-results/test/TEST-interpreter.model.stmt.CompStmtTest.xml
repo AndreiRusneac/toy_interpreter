@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.stmt.CompStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.211Z" hostname="The-Machine.local" time="0.0">
+<testsuite name="interpreter.model.stmt.CompStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.294Z" hostname="The-Machine.local" time="0.001">
   <properties/>
-  <testcase name="doesNotTouchSymTableOrOut()" classname="interpreter.model.stmt.CompStmtTest" time="0.0"/>
+  <testcase name="doesNotTouchSymTableOrOut()" classname="interpreter.model.stmt.CompStmtTest" time="0.001"/>
   <testcase name="pushesFirstOnTopOfSecond()" classname="interpreter.model.stmt.CompStmtTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

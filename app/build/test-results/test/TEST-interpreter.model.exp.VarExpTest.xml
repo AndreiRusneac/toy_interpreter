@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.exp.VarExpTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.208Z" hostname="The-Machine.local" time="0.001">
+<testsuite name="interpreter.model.exp.VarExpTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.292Z" hostname="The-Machine.local" time="0.001">
   <properties/>
-  <testcase name="undefinedVariableThrows()" classname="interpreter.model.exp.VarExpTest" time="0.001"/>
+  <testcase name="undefinedVariableThrows()" classname="interpreter.model.exp.VarExpTest" time="0.0"/>
   <testcase name="definedVariableEvaluatesToItsValue()" classname="interpreter.model.exp.VarExpTest" time="0.0"/>
-  <testcase name="valueExpEvaluatesToItsConstant()" classname="interpreter.model.exp.VarExpTest" time="0.0"/>
+  <testcase name="valueExpEvaluatesToItsConstant()" classname="interpreter.model.exp.VarExpTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

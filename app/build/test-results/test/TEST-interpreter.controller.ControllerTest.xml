@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.controller.ControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.157Z" hostname="The-Machine.local" time="0.035">
+<testsuite name="interpreter.controller.ControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.239Z" hostname="The-Machine.local" time="0.036">
   <properties/>
-  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.017"/>
-  <testcase name="example2PrintsEighteen()" classname="interpreter.controller.ControllerTest" time="0.003"/>
+  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.016"/>
+  <testcase name="example2PrintsEighteen()" classname="interpreter.controller.ControllerTest" time="0.004"/>
   <testcase name="logIsWrittenUpToTheError()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <testcase name="logFileContainsTheFourSectionsInOrder()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.002"/>
   <testcase name="example1PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="logIsAppendedNotOverwritten()" classname="interpreter.controller.ControllerTest" time="0.002"/>
+  <testcase name="logIsAppendedNotOverwritten()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <testcase name="logHasTheInitialStateAndOneStatePerStep()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="logShowsTheFinalState()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="oneStepAppliesExactlyOneRule()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="logShowsTheFinalState()" classname="interpreter.controller.ControllerTest" time="0.002"/>
+  <testcase name="oneStepAppliesExactlyOneRule()" classname="interpreter.controller.ControllerTest" time="0.0"/>
   <testcase name="oneStepOnEmptyStackThrows()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
