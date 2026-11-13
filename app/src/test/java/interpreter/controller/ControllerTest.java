@@ -159,7 +159,7 @@ class ControllerTest {
 
     @Test
     void logHasTheInitialStateAndOneStatePerStep() throws Exception {
-        run(Examples.EX1);  // 5 steps, see the A2 trace
+        run(Examples.EX1);
         assertEquals(6, count(Files.readString(log()), "ExeStack:"));
     }
 
