@@ -3,4 +3,6 @@
 *.iml
 out/
 .vscode/
-.DS_Store
+.DS_Storebuild/
+.gradle/
+log*.txt
