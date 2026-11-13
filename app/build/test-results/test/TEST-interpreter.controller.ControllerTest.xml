@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.controller.ControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.239Z" hostname="The-Machine.local" time="0.036">
+<testsuite name="interpreter.controller.ControllerTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:57.897Z" hostname="The-Machine.local" time="0.043">
   <properties/>
-  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.016"/>
+  <testcase name="runtimeErrorStopsExecution()" classname="interpreter.controller.ControllerTest" time="0.017"/>
   <testcase name="example2PrintsEighteen()" classname="interpreter.controller.ControllerTest" time="0.004"/>
+  <testcase name="fileExampleLogShowsTheOpenFile()" classname="interpreter.controller.ControllerTest" time="0.003"/>
   <testcase name="logIsWrittenUpToTheError()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <testcase name="logFileContainsTheFourSectionsInOrder()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.002"/>
-  <testcase name="example1PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="example3PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="fileExampleWithAMissingFileThrows()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="fileExampleReadsBothNumbersAndClosesTheFile()" classname="interpreter.controller.ControllerTest" time="0.002"/>
+  <testcase name="example5PrintsFive()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="example1PrintsTwo()" classname="interpreter.controller.ControllerTest" time="0.0"/>
   <testcase name="logIsAppendedNotOverwritten()" classname="interpreter.controller.ControllerTest" time="0.001"/>
   <testcase name="logHasTheInitialStateAndOneStatePerStep()" classname="interpreter.controller.ControllerTest" time="0.001"/>
-  <testcase name="logShowsTheFinalState()" classname="interpreter.controller.ControllerTest" time="0.002"/>
+  <testcase name="logShowsTheFinalState()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="fileExampleWithAnEmptyFilePrintsZeroTwice()" classname="interpreter.controller.ControllerTest" time="0.002"/>
   <testcase name="oneStepAppliesExactlyOneRule()" classname="interpreter.controller.ControllerTest" time="0.0"/>
-  <testcase name="oneStepOnEmptyStackThrows()" classname="interpreter.controller.ControllerTest" time="0.001"/>
+  <testcase name="oneStepOnEmptyStackThrows()" classname="interpreter.controller.ControllerTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

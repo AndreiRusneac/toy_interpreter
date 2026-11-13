@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyStackTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.282Z" hostname="The-Machine.local" time="0.002">
+<testsuite name="interpreter.model.adt.MyStackTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:57.948Z" hostname="The-Machine.local" time="0.001">
   <properties/>
   <testcase name="newStackIsEmpty()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
-  <testcase name="toStringShowsTopFirst()" classname="interpreter.model.adt.MyStackTest" time="0.001"/>
-  <testcase name="popOnEmptyStackThrows()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
+  <testcase name="toStringShowsTopFirst()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
+  <testcase name="popOnEmptyStackThrows()" classname="interpreter.model.adt.MyStackTest" time="0.001"/>
   <testcase name="popReturnsElementsInLifoOrder()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
   <testcase name="toListGivesTopFirst()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>
   <testcase name="toListIsACopy()" classname="interpreter.model.adt.MyStackTest" time="0.0"/>

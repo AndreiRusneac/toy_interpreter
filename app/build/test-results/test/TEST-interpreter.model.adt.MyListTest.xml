@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.280Z" hostname="The-Machine.local" time="0.002">
+<testsuite name="interpreter.model.adt.MyListTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:57.945Z" hostname="The-Machine.local" time="0.002">
   <properties/>
-  <testcase name="getOutOfBoundsThrows()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
-  <testcase name="toListKeepsInsertionOrder()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
+  <testcase name="getOutOfBoundsThrows()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
+  <testcase name="toListKeepsInsertionOrder()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
   <testcase name="newListHasSizeZero()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
   <testcase name="addKeepsInsertionOrder()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
-  <testcase name="toStringUsesBraces()" classname="interpreter.model.adt.MyListTest" time="0.001"/>
+  <testcase name="toStringUsesBraces()" classname="interpreter.model.adt.MyListTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

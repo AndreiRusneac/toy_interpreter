@@ -11,6 +11,7 @@ import interpreter.model.stmt.VarDeclStmt;
 import interpreter.model.type.IntType;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IntValue;
+import interpreter.model.value.StringValue;
 import interpreter.repository.Repository;
 import interpreter.view.Examples;
 import org.junit.jupiter.api.Test;
@@ -70,6 +71,51 @@ class ControllerTest {
         assertTrue(state.getExeStack().isEmpty());
         assertEquals("{2}", state.getOut().toString());
         assertEquals(new BoolValue(true), state.getSymTable().lookup("a"));
+    }
+
+    // ---------- the A3 examples ----------
+
+    @Test
+    void fileExampleReadsBothNumbersAndClosesTheFile() throws Exception {
+        Path in = dir.resolve("test.in");
+        Files.writeString(in, "15\n50\n");
+        PrgState s = run(Examples.fileExample(in.toString()));
+        assertEquals(2, s.getOut().size());
+        assertEquals(new IntValue(15), s.getOut().get(0));
+        assertEquals(new IntValue(50), s.getOut().get(1));
+        assertTrue(s.getFileTable().toMap().isEmpty());
+    }
+
+    @Test
+    void fileExampleWithAnEmptyFilePrintsZeroTwice() throws Exception {
+        Path in = dir.resolve("empty.in");
+        Files.writeString(in, "");
+        PrgState s = run(Examples.fileExample(in.toString()));
+        assertEquals("{0, 0}", s.getOut().toString());
+        assertTrue(s.getFileTable().toMap().isEmpty());
+    }
+
+    @Test
+    void fileExampleWithAMissingFileThrows() {
+        String missing = dir.resolve("missing.in").toString();
+        assertThrows(StatementException.class, () -> run(Examples.fileExample(missing)));
+    }
+
+    @Test
+    void fileExampleLogShowsTheOpenFile() throws Exception {
+        Path in = dir.resolve("test.in");
+        Files.writeString(in, "15\n50\n");
+        run(Examples.fileExample(in.toString()));
+        String log = Files.readString(log());
+        assertTrue(log.contains("FileTable:\n" + in + "\n"), "the open file appears in the FileTable section");
+        assertTrue(log.contains("varf --> " + new StringValue(in.toString())));
+    }
+
+    @Test
+    void example5PrintsFive() throws MyException {
+        PrgState state = run(Examples.EX5);
+        assertTrue(state.getExeStack().isEmpty());
+        assertEquals("{5}", state.getOut().toString());
     }
 
     // ---------- oneStep ----------

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.stmt.IfStmtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:19.310Z" hostname="The-Machine.local" time="0.001">
+<testsuite name="interpreter.model.stmt.IfStmtTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:25:57.973Z" hostname="The-Machine.local" time="0.001">
   <properties/>
-  <testcase name="falseConditionPushesElseBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.0"/>
-  <testcase name="trueConditionPushesThenBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.001"/>
+  <testcase name="falseConditionPushesElseBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.001"/>
+  <testcase name="trueConditionPushesThenBranch()" classname="interpreter.model.stmt.IfStmtTest" time="0.0"/>
   <testcase name="nonBooleanConditionThrows()" classname="interpreter.model.stmt.IfStmtTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
