@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.PrgStateTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:36:22.737Z" hostname="The-Machine.local" time="0.0">
+<testsuite name="interpreter.model.PrgStateTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.192Z" hostname="The-Machine.local" time="0.001">
   <properties/>
-  <testcase name="ofCreatesEmptyStructuresWithTheProgramOnTheStack()" classname="interpreter.model.PrgStateTest" time="0.0"/>
+  <testcase name="ofCreatesEmptyStructuresWithTheProgramOnTheStack()" classname="interpreter.model.PrgStateTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

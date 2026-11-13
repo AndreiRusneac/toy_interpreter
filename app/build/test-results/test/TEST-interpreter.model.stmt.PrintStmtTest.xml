@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.stmt.PrintStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:36:22.780Z" hostname="The-Machine.local" time="0.0">
+<testsuite name="interpreter.model.stmt.PrintStmtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.228Z" hostname="The-Machine.local" time="0.0">
   <properties/>
   <testcase name="evaluationErrorIsPropagated()" classname="interpreter.model.stmt.PrintStmtTest" time="0.0"/>
   <testcase name="appendsValuesToOutInOrder()" classname="interpreter.model.stmt.PrintStmtTest" time="0.0"/>

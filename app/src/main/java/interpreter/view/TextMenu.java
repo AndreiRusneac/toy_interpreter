@@ -69,7 +69,7 @@ public class TextMenu {
         }
         // A fresh state for every run, so the same program can be run again.
         PrgState state = PrgState.of(selected);
-        Controller controller = new Controller(new Repository(state), true);
+        Controller controller = new Controller(new Repository(state, "log.txt"), true);
         try {
             controller.allStep();
             System.out.println("Output: " + state.getOut());

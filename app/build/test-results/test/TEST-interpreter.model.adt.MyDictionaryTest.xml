@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="interpreter.model.adt.MyDictionaryTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-06T10:36:22.738Z" hostname="The-Machine.local" time="0.004">
+<testsuite name="interpreter.model.adt.MyDictionaryTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2026-11-13T08:24:21.193Z" hostname="The-Machine.local" time="0.003">
   <properties/>
   <testcase name="toMapIsReadOnly()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>
   <testcase name="toMapContainsTheEntries()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
-  <testcase name="updateOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>
+  <testcase name="updateOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="removeOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
-  <testcase name="missingKeyIsNotDefined()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>
+  <testcase name="missingKeyIsNotDefined()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="putThenLookupReturnsTheValue()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="removeDeletesTheKey()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
-  <testcase name="updateReplacesTheValue()" classname="interpreter.model.adt.MyDictionaryTest" time="0.001"/>
+  <testcase name="updateReplacesTheValue()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <testcase name="lookupOfMissingKeyThrows()" classname="interpreter.model.adt.MyDictionaryTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
