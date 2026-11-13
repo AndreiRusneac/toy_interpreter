@@ -27,13 +27,11 @@ public class MyList<T> implements IList<T> {
         return list.size();
     }
 
-    /** A read-only copy, in insertion order. */
     @Override
     public List<T> toList() {
         return List.copyOf(list);
     }
 
-    /** Lab notation: {1, 2}. */
     @Override
     public String toString() {
         return list.stream()

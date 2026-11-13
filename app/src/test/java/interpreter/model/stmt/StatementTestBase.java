@@ -4,7 +4,6 @@ import interpreter.exceptions.ADTException;
 import interpreter.model.PrgState;
 import org.junit.jupiter.api.BeforeEach;
 
-/** Gives every statement test a fresh, completely empty program state. */
 abstract class StatementTestBase {
     protected PrgState state;
 

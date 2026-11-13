@@ -7,7 +7,6 @@ import interpreter.model.value.BoolValue;
 import interpreter.model.value.IValue;
 import interpreter.model.value.IntValue;
 
-/** Rule E5: both operands must be int; the result is bool, so it can be an if condition. */
 public record RelationalExp(RelOp op, IExp left, IExp right) implements IExp {
     @Override
     public IValue eval(IDictionary<String, IValue> symTable) throws MyException {

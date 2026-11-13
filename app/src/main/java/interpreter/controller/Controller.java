@@ -7,15 +7,14 @@ import interpreter.model.stmt.IStmt;
 import interpreter.repository.IRepository;
 
 public class Controller {
-    private final IRepository repo;     // interface type: the implementation can be swapped
-    private final boolean displayFlag;  // print the state after every step?
+    private final IRepository repo;
+    private final boolean displayFlag;
 
     public Controller(IRepository repo, boolean displayFlag) {
         this.repo = repo;
         this.displayFlag = displayFlag;
     }
 
-    /** Pops the top statement and applies exactly one rule (S1–S6). Empty stack = rule S7 error. */
     public PrgState oneStep(PrgState state) throws MyException {
         var stack = state.getExeStack();
         if (stack.isEmpty()) {
@@ -25,7 +24,6 @@ public class Controller {
         return crtStmt.execute(state);
     }
 
-    /** Runs the current program until the execution stack is empty, logging the initial state and every step. */
     public void allStep() throws MyException {
         PrgState prg = repo.getCrtPrg();
         repo.logPrgStateExec();

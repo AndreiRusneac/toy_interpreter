@@ -11,6 +11,5 @@ public interface IStack<T> {
 
     boolean isEmpty();
 
-    /** The elements, top of the stack first. */
     List<T> toList();
 }

@@ -8,7 +8,6 @@ import interpreter.model.value.StringValue;
 
 import java.io.IOException;
 
-/** Rule S10: closeRFile(Exp). Closes the reader and removes the file from the FileTable. */
 public record CloseRFileStmt(IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {

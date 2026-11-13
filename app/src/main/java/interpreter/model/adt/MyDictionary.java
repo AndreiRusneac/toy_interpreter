@@ -43,13 +43,11 @@ public class MyDictionary<K, V> implements IDictionary<K, V> {
         map.remove(key);
     }
 
-    /** Map.copyOf: callers can read the content but cannot change the dictionary through it. */
     @Override
     public Map<K, V> toMap() {
         return Map.copyOf(map);
     }
 
-    /** Lab notation: {v -> 2, a -> false}. */
     @Override
     public String toString() {
         return map.entrySet().stream()

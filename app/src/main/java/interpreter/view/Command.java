@@ -1,6 +1,5 @@
 package interpreter.view;
 
-/** Command pattern: a menu option is an object with a key, a description and an action. */
 public abstract class Command {
     private final String key;
     private final String description;

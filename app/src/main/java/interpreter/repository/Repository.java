@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Stores the program states in a list; for now there is exactly one (one thread). */
 public class Repository implements IRepository {
     private final List<PrgState> prgStates = new ArrayList<>();
     private final String logFilePath;
@@ -26,10 +25,6 @@ public class Repository implements IRepository {
         return prgStates.getFirst();
     }
 
-    /**
-     * Opens the log in append mode (the 'true'), writes one state and closes it again.
-     * try-with-resources closes the writer even on an error, so nothing written is lost.
-     */
     @Override
     public void logPrgStateExec() throws MyException {
         try (var logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {

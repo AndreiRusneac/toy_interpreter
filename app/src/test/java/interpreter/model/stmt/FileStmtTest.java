@@ -19,14 +19,13 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** Rules S8–S10. Every test gets a fresh temporary folder, so no test depends on project files. */
 class FileStmtTest {
     @TempDir
     Path dir;
 
     private PrgState state;
-    private StringValue fileName;     // "<dir>/numbers.in"
-    private ValueExp file;            // the expression "<dir>/numbers.in"
+    private StringValue fileName;
+    private ValueExp file;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -39,7 +38,6 @@ class FileStmtTest {
         new VarDeclStmt("x", new IntType()).execute(state);
     }
 
-    // ---------- openRFile (S8) ----------
 
     @Test
     void openAddsTheFileToTheFileTable() throws MyException {
@@ -76,7 +74,6 @@ class FileStmtTest {
         assertTrue(state.getFileTable().toMap().isEmpty());
     }
 
-    // ---------- readFile (S9) ----------
 
     @Test
     void readGivesTheNumbersInOrderThenZeroAtTheEnd() throws MyException {
@@ -137,8 +134,6 @@ class FileStmtTest {
         assertEquals(new IntValue(0), state.getSymTable().lookup("x"), "x must stay unchanged");
     }
 
-    // ---------- closeRFile (S10) ----------
-
     @Test
     void closeRemovesTheFileFromTheFileTable() throws MyException {
         new OpenRFileStmt(file).execute(state);
@@ -167,7 +162,6 @@ class FileStmtTest {
         assertThrows(StatementException.class, () -> s.execute(state));
     }
 
-    // ---------- toString ----------
 
     @Test
     void toStringIsInfix() {

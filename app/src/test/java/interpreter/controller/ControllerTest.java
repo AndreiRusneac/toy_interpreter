@@ -48,7 +48,7 @@ class ControllerTest {
         return n;
     }
 
-    // ---------- the A2 examples ----------
+
 
     @Test
     void example1PrintsTwo() throws MyException {
@@ -73,7 +73,6 @@ class ControllerTest {
         assertEquals(new BoolValue(true), state.getSymTable().lookup("a"));
     }
 
-    // ---------- the A3 examples ----------
 
     @Test
     void fileExampleReadsBothNumbersAndClosesTheFile() throws Exception {
@@ -118,7 +117,6 @@ class ControllerTest {
         assertEquals("{5}", state.getOut().toString());
     }
 
-    // ---------- oneStep ----------
 
     @Test
     void oneStepAppliesExactlyOneRule() throws MyException {
@@ -149,7 +147,6 @@ class ControllerTest {
         assertThrows(StatementException.class, () -> run(bad));
     }
 
-    // ---------- the log file ----------
 
     @Test
     void logFileContainsTheFourSectionsInOrder() throws Exception {
@@ -186,7 +183,6 @@ class ControllerTest {
         IStmt bad = new CompStmt(new VarDeclStmt("a", new IntType()),
                 new AssignStmt("a", new ValueExp(new BoolValue(true))));
         assertThrows(StatementException.class, () -> run(bad));
-        // initial state, after S1, after the declaration: the failing step logs nothing
         assertEquals(3, count(Files.readString(log()), "ExeStack:"));
     }
 }

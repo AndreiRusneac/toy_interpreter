@@ -4,10 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
- * A menu built from commands. Adding an option means adding a command; this class never changes.
- * LinkedHashMap keeps the options in the order they were added (a HashMap would shuffle them).
- */
+
 public class TextMenu {
     private final Map<String, Command> commands = new LinkedHashMap<>();
 
@@ -26,7 +23,7 @@ public class TextMenu {
         while (true) {
             printMenu();
             System.out.print("Input the option: ");
-            if (!scanner.hasNextLine()) {           // end of input (e.g. Ctrl+D): stop cleanly
+            if (!scanner.hasNextLine()) {
                 return;
             }
             Command c = commands.get(scanner.nextLine().strip());

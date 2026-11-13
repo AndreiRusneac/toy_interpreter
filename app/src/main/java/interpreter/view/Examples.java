@@ -22,7 +22,6 @@ import interpreter.model.value.BoolValue;
 import interpreter.model.value.IntValue;
 import interpreter.model.value.StringValue;
 
-/** The example programs (A2 section 2.2, A3 section 1.4), written as object trees (there is no parser yet). */
 public final class Examples {
     private Examples() {
     }

@@ -11,6 +11,5 @@ public interface IList<T> {
 
     int size();
 
-    /** The elements, in insertion order. */
     List<T> toList();
 }

@@ -17,7 +17,6 @@ public class PrgState {
     private IDictionary<String, IValue> symTable;
     private IList<IValue> out;
     private IDictionary<StringValue, BufferedReader> fileTable;   // new in A3
-    // Statements are immutable records, so the same object can be kept (no deep copy needed).
     private final IStmt originalProgram;
 
     public PrgState(IStack<IStmt> exeStack, IDictionary<String, IValue> symTable,
@@ -31,7 +30,6 @@ public class PrgState {
         exeStack.push(program);
     }
 
-    /** A state with empty structures. When a structure is added later, only this method changes. */
     public static PrgState of(IStmt program) {
         return new PrgState(new MyStack<>(), new MyDictionary<>(), new MyList<>(),
                 new MyDictionary<>(), program);
@@ -73,7 +71,6 @@ public class PrgState {
         return originalProgram;
     }
 
-    /** The log file format: one section per structure, one element per line, top of the stack first. */
     public String toLogString() {
         var sb = new StringBuilder();
         sb.append("ExeStack:\n");

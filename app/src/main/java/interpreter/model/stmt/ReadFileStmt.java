@@ -10,10 +10,7 @@ import interpreter.model.value.StringValue;
 
 import java.io.IOException;
 
-/**
- * Rule S9: readFile(Exp, Id). Reads one line from the file named by Exp and stores it in Id
- * (0 at the end of the file).
- */
+
 public record ReadFileStmt(IExp exp, String varName) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {

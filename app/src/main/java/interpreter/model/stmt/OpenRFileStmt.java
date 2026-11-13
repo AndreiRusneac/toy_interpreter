@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/** Rule S8: openRFile(Exp). Opens the file and adds fileName -> reader to the FileTable. */
 public record OpenRFileStmt(IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {
