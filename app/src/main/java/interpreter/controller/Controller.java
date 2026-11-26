@@ -30,9 +30,9 @@ public class Controller {
         display(prg);
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-            repo.logPrgStateExec();             // the state before the garbage collection
+            repo.logPrgStateExec();
             collectGarbage(prg);
-            repo.logPrgStateExec();             // and after it
+            repo.logPrgStateExec();
             display(prg);
         }
     }

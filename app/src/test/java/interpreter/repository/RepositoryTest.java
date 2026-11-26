@@ -31,7 +31,6 @@ class RepositoryTest {
 
     @Test
     void unwritableLogFileThrowsRepositoryException() {
-        // the path is a folder, so it cannot be opened as a file
         var repo = new Repository(PrgState.of(new NopStmt()), dir.toString());
         assertThrows(RepositoryException.class, repo::logPrgStateExec);
     }

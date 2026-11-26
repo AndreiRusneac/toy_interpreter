@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 
 public class MyHeap implements IHeap {
     private Map<Integer, IValue> heap = new HashMap<>();
-    private int nextFree = 1;                       // address 0 means null, so the first address is 1
+    private int nextFree = 1;
 
     @Override
     public int allocate(IValue value) {
-        int address = nextFree++;                   // an address is never reused, even after a collection
+        int address = nextFree++;
         heap.put(address, value);
         return address;
     }
@@ -50,7 +50,6 @@ public class MyHeap implements IHeap {
         heap = new HashMap<>(content);
     }
 
-    /** Sorted by address, so the output of two runs of the same program is identical. */
     @Override
     public String toString() {
         return new TreeMap<>(heap).entrySet().stream()

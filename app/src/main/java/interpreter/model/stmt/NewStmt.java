@@ -7,7 +7,6 @@ import interpreter.model.exp.IExp;
 import interpreter.model.value.IValue;
 import interpreter.model.value.RefValue;
 
-/** Rule S11: new(v, exp). Stores exp at a new heap address and makes v point to it. */
 public record NewStmt(String varName, IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {

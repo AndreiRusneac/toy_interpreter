@@ -7,7 +7,6 @@ import interpreter.model.exp.IExp;
 import interpreter.model.value.IValue;
 import interpreter.model.value.RefValue;
 
-/** Rule S12: wH(v, exp). Overwrites the heap location that v refers to. */
 public record WriteHeapStmt(String varName, IExp exp) implements IStmt {
     @Override
     public PrgState execute(PrgState state) throws MyException {

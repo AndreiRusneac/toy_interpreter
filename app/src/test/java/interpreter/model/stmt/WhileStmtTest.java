@@ -22,7 +22,6 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** Rule S13. */
 class WhileStmtTest {
     @TempDir
     Path dir;
@@ -35,7 +34,6 @@ class WhileStmtTest {
         return new VarExp("v");
     }
 
-    /** int v; v = start; while (v > 0) (print(v); v = v - 1) -- the loop runs `start` times. */
     private PrgState runCountdown(int start) throws MyException {
         IStmt body = new CompStmt(new PrintStmt(v()),
                 new AssignStmt("v", new ArithExp(ArithOp.SUB, v(), num(1))));
@@ -47,7 +45,6 @@ class WhileStmtTest {
         return state;
     }
 
-    // ---------- the rule itself, one step ----------
 
     private PrgState emptyState() throws MyException {
         PrgState state = PrgState.of(new NopStmt());
@@ -94,8 +91,6 @@ class WhileStmtTest {
         PrgState state = emptyState();
         assertThrows(MyException.class, () -> loop.execute(state));
     }
-
-    // ---------- whole loops ----------
 
     @Test
     void aLoopThatRunsZeroTimes() throws MyException {

@@ -13,13 +13,12 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** The collector works on plain Java collections, so no program has to be run. */
+
 class GarbageCollectorTest {
-    // the state of Ex9 after new(v, 30): v -> (3, int), a -> (2, Ref(int))
+
     private final List<IValue> symTable = List.of(
             new RefValue(3, new IntType()), new RefValue(2, new RefType(new IntType())));
-    // 1 is no longer referred to from the SymTable, but location 2 (which a refers to) points to it;
-    // 4 is garbage
+
     private final Map<Integer, IValue> heap = Map.of(
             1, new IntValue(20), 2, new RefValue(1, new IntType()),
             3, new IntValue(30), 4, new IntValue(7));
@@ -50,7 +49,7 @@ class GarbageCollectorTest {
     void theUnsafeCollectorAlsoRemovesALocationThatIsReachableThroughTheHeap() {
         Set<Integer> roots = GarbageCollector.getAddrFromSymTable(symTable);
         Map<Integer, IValue> kept = GarbageCollector.unsafeGarbageCollector(roots, heap);
-        // this is the bug: location 1 is reachable through location 2, but it is removed
+
         assertEquals(Set.of(2, 3), kept.keySet());
     }
 
@@ -60,7 +59,6 @@ class GarbageCollectorTest {
         assertEquals(4, heap.size());
     }
 
-    // ---------- reachableAddresses ----------
 
     @Test
     void theRootsAreReachable() {

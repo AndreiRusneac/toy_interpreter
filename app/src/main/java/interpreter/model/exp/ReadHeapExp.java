@@ -7,7 +7,6 @@ import interpreter.model.adt.IHeap;
 import interpreter.model.value.IValue;
 import interpreter.model.value.RefValue;
 
-/** Rule E6: rH(exp). exp must be a reference; the value is the content of the heap at its address. */
 public record ReadHeapExp(IExp exp) implements IExp {
     @Override
     public IValue eval(IDictionary<String, IValue> symTable, IHeap heap) throws MyException {

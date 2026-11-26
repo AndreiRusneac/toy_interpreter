@@ -4,18 +4,16 @@ import interpreter.exceptions.MyException;
 import interpreter.exceptions.StatementException;
 import interpreter.model.PrgState;
 import interpreter.model.exp.ValueExp;
-import interpreter.model.exp.VarExp;
-import interpreter.model.exp.ReadHeapExp;
 import interpreter.model.stmt.AssignStmt;
 import interpreter.model.stmt.CompStmt;
 import interpreter.model.stmt.IStmt;
-import interpreter.model.stmt.PrintStmt;
 import interpreter.model.stmt.NewStmt;
 import interpreter.model.stmt.VarDeclStmt;
 import interpreter.model.type.IntType;
 import interpreter.model.type.RefType;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IntValue;
+import interpreter.model.value.RefValue;
 import interpreter.model.value.StringValue;
 import interpreter.repository.Repository;
 import interpreter.view.Examples;
@@ -192,29 +190,58 @@ class ControllerTest {
         assertEquals(5, count(Files.readString(log()), "ExeStack:"));
     }
 
-    // ---------- the garbage collector ----------
+    // ---------- the A4 examples (Laboratory 7, section 1.4) ----------
 
-    /** Ex9: Ref int v; new(v, 20); Ref Ref int a; new(a, v); new(v, 30); print(rH(rH(a))) */
-    private static IStmt ex9() {
-        var refInt = new RefType(new IntType());
-        return new CompStmt(new VarDeclStmt("v", refInt),
-                new CompStmt(new NewStmt("v", new ValueExp(new IntValue(20))),
-                        new CompStmt(new VarDeclStmt("a", new RefType(refInt)),
-                                new CompStmt(new NewStmt("a", new VarExp("v")),
-                                        new CompStmt(new NewStmt("v", new ValueExp(new IntValue(30))),
-                                                new PrintStmt(new ReadHeapExp(new ReadHeapExp(new VarExp("a")))))))));
+    @Test
+    void example6AllocatesTwoLocationsAndPrintsTheReferences() throws Exception {
+        PrgState s = run(Examples.EX6);
+        assertEquals("{1 -> 20, 2 -> (1, int)}", s.getHeap().toString());
+        assertEquals(new RefValue(1, new IntType()), s.getSymTable().lookup("v"));
+        assertEquals(new RefValue(2, new RefType(new IntType())), s.getSymTable().lookup("a"));
+        assertEquals("{(1, int), (2, Ref(int))}", s.getOut().toString());
     }
 
     @Test
+    void example7ReadsThroughOneAndTwoReferences() throws Exception {
+        PrgState s = run(Examples.EX7);
+        assertEquals("{20, 25}", s.getOut().toString());
+        assertEquals("{1 -> 20, 2 -> (1, int)}", s.getHeap().toString());
+        assertEquals(new RefValue(1, new IntType()), s.getSymTable().lookup("v"));
+        assertEquals(new RefValue(2, new RefType(new IntType())), s.getSymTable().lookup("a"));
+    }
+
+    @Test
+    void example8WritesTheHeap() throws Exception {
+        PrgState s = run(Examples.EX8);
+        assertEquals("{20, 35}", s.getOut().toString());
+        assertEquals("{1 -> 30}", s.getHeap().toString());
+        assertEquals(new RefValue(1, new IntType()), s.getSymTable().lookup("v"));
+    }
+
+    @Test
+    void example9PrintsTwentyWithTheSafeCollector() throws Exception {
+        assertEquals("{20}", run(Examples.EX9).getOut().toString());
+    }
+
+    @Test
+    void example10CountsDown() throws Exception {
+        PrgState s = run(Examples.EX10);
+        assertEquals("{4, 3, 2, 1, 0}", s.getOut().toString());
+        assertTrue(s.getExeStack().isEmpty());
+    }
+
+    // ---------- the garbage collector ----------
+
+    @Test
     void theSafeCollectorKeepsTheLocationThatIsReachableThroughTheHeap() throws Exception {
-        PrgState state = run(ex9());
+        PrgState state = run(Examples.EX9);
         assertEquals("{20}", state.getOut().toString());               // rH(rH(a)) still works
         assertEquals("{1 -> 20, 2 -> (1, int), 3 -> 30}", state.getHeap().toString());
     }
 
     @Test
     void theSafeCollectorKeepsLocationOneInEveryLoggedStateAfterTheLastNew() throws Exception {
-        run(ex9());
+        run(Examples.EX9);
         String log = Files.readString(log());
         // new(v, 30) and print(...) each log a state before and a state after the collection
         assertEquals(4, count(log, "Heap:\n1 --> 20\n2 --> (1, int)\n3 --> 30\n"));

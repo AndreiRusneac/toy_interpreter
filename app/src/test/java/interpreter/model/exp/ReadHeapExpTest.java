@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** Rule E6. */
 class ReadHeapExpTest {
     private IDictionary<String, IValue> symTable;
     private IHeap heap;

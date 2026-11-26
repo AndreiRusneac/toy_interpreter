@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** Rules S11 (new) and S12 (wH). */
 class HeapStmtTest {
     private PrgState state;
 
@@ -31,7 +30,7 @@ class HeapStmtTest {
         return new ValueExp(new IntValue(n));
     }
 
-    // ---------- new (S11) ----------
+
 
     @Test
     void newAllocatesAtAddressOneAndUpdatesTheVariable() throws MyException {

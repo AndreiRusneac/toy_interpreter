@@ -9,7 +9,7 @@ abstract class StatementTestBase {
 
     @BeforeEach
     void freshState() throws ADTException {
-        // PrgState pushes the program it is given; pop it so the stack starts empty.
+
         state = PrgState.of(new NopStmt());
         state.getExeStack().pop();
     }
