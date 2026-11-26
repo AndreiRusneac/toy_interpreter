@@ -30,9 +30,17 @@ public class Controller {
         display(prg);
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-            repo.logPrgStateExec();
+            repo.logPrgStateExec();             // the state before the garbage collection
+            collectGarbage(prg);
+            repo.logPrgStateExec();             // and after it
             display(prg);
         }
+    }
+
+    private void collectGarbage(PrgState prg) {
+        prg.getHeap().setContent(GarbageCollector.unsafeGarbageCollector(
+                GarbageCollector.getAddrFromSymTable(prg.getSymTable().toMap().values()),
+                prg.getHeap().getContent()));
     }
 
     private void display(PrgState prg) {

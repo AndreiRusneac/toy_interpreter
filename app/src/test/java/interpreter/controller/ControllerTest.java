@@ -4,11 +4,16 @@ import interpreter.exceptions.MyException;
 import interpreter.exceptions.StatementException;
 import interpreter.model.PrgState;
 import interpreter.model.exp.ValueExp;
+import interpreter.model.exp.VarExp;
+import interpreter.model.exp.ReadHeapExp;
 import interpreter.model.stmt.AssignStmt;
 import interpreter.model.stmt.CompStmt;
 import interpreter.model.stmt.IStmt;
+import interpreter.model.stmt.PrintStmt;
+import interpreter.model.stmt.NewStmt;
 import interpreter.model.stmt.VarDeclStmt;
 import interpreter.model.type.IntType;
+import interpreter.model.type.RefType;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IntValue;
 import interpreter.model.value.StringValue;
@@ -158,9 +163,9 @@ class ControllerTest {
     }
 
     @Test
-    void logHasTheInitialStateAndOneStatePerStep() throws Exception {
-        run(Examples.EX1);
-        assertEquals(6, count(Files.readString(log()), "ExeStack:"));
+    void logHasTheInitialStateAndTwoStatesPerStep() throws Exception {
+        run(Examples.EX1);      // 5 steps: the initial state + (before GC, after GC) for every step
+        assertEquals(11, count(Files.readString(log()), "ExeStack:"));
     }
 
     @Test
@@ -175,7 +180,7 @@ class ControllerTest {
     void logIsAppendedNotOverwritten() throws Exception {
         run(Examples.EX1);
         run(Examples.EX1);
-        assertEquals(12, count(Files.readString(log()), "ExeStack:"));
+        assertEquals(22, count(Files.readString(log()), "ExeStack:"));
     }
 
     @Test
@@ -183,6 +188,35 @@ class ControllerTest {
         IStmt bad = new CompStmt(new VarDeclStmt("a", new IntType()),
                 new AssignStmt("a", new ValueExp(new BoolValue(true))));
         assertThrows(StatementException.class, () -> run(bad));
-        assertEquals(3, count(Files.readString(log()), "ExeStack:"));
+        // the initial state, two states for S1 and two for the declaration; the failing step logs nothing
+        assertEquals(5, count(Files.readString(log()), "ExeStack:"));
+    }
+
+    // ---------- the garbage collector ----------
+
+    /** Ex9: Ref int v; new(v, 20); Ref Ref int a; new(a, v); new(v, 30); print(rH(rH(a))) */
+    private static IStmt ex9() {
+        var refInt = new RefType(new IntType());
+        return new CompStmt(new VarDeclStmt("v", refInt),
+                new CompStmt(new NewStmt("v", new ValueExp(new IntValue(20))),
+                        new CompStmt(new VarDeclStmt("a", new RefType(refInt)),
+                                new CompStmt(new NewStmt("a", new VarExp("v")),
+                                        new CompStmt(new NewStmt("v", new ValueExp(new IntValue(30))),
+                                                new PrintStmt(new ReadHeapExp(new ReadHeapExp(new VarExp("a")))))))));
+    }
+
+    @Test
+    void theUnsafeCollectorMakesExample9FailAtTheLastStep() throws Exception {
+        var ex = assertThrows(interpreter.exceptions.ExpressionException.class, () -> run(ex9()));
+        assertEquals("rH: address 1 is not in the heap", ex.getMessage());
+    }
+
+    @Test
+    void theLogShowsTheLocationDisappearingAroundTheLastNew() throws Exception {
+        assertThrows(interpreter.exceptions.ExpressionException.class, () -> run(ex9()));
+        String log = Files.readString(log());
+        // before the collection: all three locations; after it: location 1 is gone
+        assertTrue(log.contains("Heap:\n1 --> 20\n2 --> (1, int)\n3 --> 30\n"));
+        assertTrue(log.contains("Heap:\n2 --> (1, int)\n3 --> 30\n"));
     }
 }
