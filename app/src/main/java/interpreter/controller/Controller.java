@@ -38,7 +38,7 @@ public class Controller {
     }
 
     private void collectGarbage(PrgState prg) {
-        prg.getHeap().setContent(GarbageCollector.unsafeGarbageCollector(
+        prg.getHeap().setContent(GarbageCollector.safeGarbageCollector(
                 GarbageCollector.getAddrFromSymTable(prg.getSymTable().toMap().values()),
                 prg.getHeap().getContent()));
     }

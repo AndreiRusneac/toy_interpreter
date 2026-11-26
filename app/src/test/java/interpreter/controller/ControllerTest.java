@@ -206,17 +206,41 @@ class ControllerTest {
     }
 
     @Test
-    void theUnsafeCollectorMakesExample9FailAtTheLastStep() throws Exception {
-        var ex = assertThrows(interpreter.exceptions.ExpressionException.class, () -> run(ex9()));
-        assertEquals("rH: address 1 is not in the heap", ex.getMessage());
+    void theSafeCollectorKeepsTheLocationThatIsReachableThroughTheHeap() throws Exception {
+        PrgState state = run(ex9());
+        assertEquals("{20}", state.getOut().toString());               // rH(rH(a)) still works
+        assertEquals("{1 -> 20, 2 -> (1, int), 3 -> 30}", state.getHeap().toString());
     }
 
     @Test
-    void theLogShowsTheLocationDisappearingAroundTheLastNew() throws Exception {
-        assertThrows(interpreter.exceptions.ExpressionException.class, () -> run(ex9()));
+    void theSafeCollectorKeepsLocationOneInEveryLoggedStateAfterTheLastNew() throws Exception {
+        run(ex9());
         String log = Files.readString(log());
-        // before the collection: all three locations; after it: location 1 is gone
-        assertTrue(log.contains("Heap:\n1 --> 20\n2 --> (1, int)\n3 --> 30\n"));
-        assertTrue(log.contains("Heap:\n2 --> (1, int)\n3 --> 30\n"));
+        // new(v, 30) and print(...) each log a state before and a state after the collection
+        assertEquals(4, count(log, "Heap:\n1 --> 20\n2 --> (1, int)\n3 --> 30\n"));
+    }
+
+    @Test
+    void garbageIsRemovedFromTheHeap() throws Exception {
+        // Ref int v; new(v, 20); new(v, 30): location 1 is garbage as soon as v points to 2
+        var refInt = new RefType(new IntType());
+        IStmt program = new CompStmt(new VarDeclStmt("v", refInt),
+                new CompStmt(new NewStmt("v", new ValueExp(new IntValue(20))),
+                        new NewStmt("v", new ValueExp(new IntValue(30)))));
+        PrgState state = run(program);
+        assertEquals("{2 -> 30}", state.getHeap().toString());
+        String log = Files.readString(log());
+        assertTrue(log.contains("Heap:\n1 --> 20\n2 --> 30\n"), "before the collection");
+        assertTrue(log.contains("Heap:\n2 --> 30\n"), "after the collection");
+    }
+
+    @Test
+    void addressesAreNotReusedAfterACollection() throws Exception {
+        var refInt = new RefType(new IntType());
+        IStmt program = new CompStmt(new VarDeclStmt("v", refInt),
+                new CompStmt(new NewStmt("v", new ValueExp(new IntValue(20))),
+                        new CompStmt(new NewStmt("v", new ValueExp(new IntValue(30))),
+                                new NewStmt("v", new ValueExp(new IntValue(40))))));
+        assertEquals("{3 -> 40}", run(program).getHeap().toString());
     }
 }
