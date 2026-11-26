@@ -3,7 +3,9 @@ package interpreter.model.exp;
 import interpreter.exceptions.ExpressionException;
 import interpreter.exceptions.MyException;
 import interpreter.model.adt.IDictionary;
+import interpreter.model.adt.IHeap;
 import interpreter.model.adt.MyDictionary;
+import interpreter.model.adt.MyHeap;
 import interpreter.model.value.BoolValue;
 import interpreter.model.value.IValue;
 import interpreter.model.value.IntValue;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LogicExpTest {
+    private final IHeap heap = new MyHeap();
     private final IDictionary<String, IValue> symTable = new MyDictionary<>();
 
     private static IExp bool(boolean b) {
@@ -19,7 +22,7 @@ class LogicExpTest {
     }
 
     private IValue eval(LogicOp op, boolean a, boolean b) throws MyException {
-        return new LogicExp(op, bool(a), bool(b)).eval(symTable);
+        return new LogicExp(op, bool(a), bool(b)).eval(symTable, heap);
     }
 
     @Test
@@ -41,14 +44,14 @@ class LogicExpTest {
     @Test
     void nonBooleanFirstOperandThrows() {
         IExp e = new LogicExp(LogicOp.AND, new ValueExp(new IntValue(1)), bool(true));
-        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable));
+        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable, heap));
         assertEquals("first operand is not a boolean", ex.getMessage());
     }
 
     @Test
     void nonBooleanSecondOperandThrows() {
         IExp e = new LogicExp(LogicOp.OR, bool(true), new ValueExp(new IntValue(1)));
-        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable));
+        var ex = assertThrows(ExpressionException.class, () -> e.eval(symTable, heap));
         assertEquals("second operand is not a boolean", ex.getMessage());
     }
 }
