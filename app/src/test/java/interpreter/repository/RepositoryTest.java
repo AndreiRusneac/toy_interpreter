@@ -26,7 +26,7 @@ class RepositoryTest {
     void logWritesTheStateInTheLogFormat() throws Exception {
         Path log = dir.resolve("log.txt");
         new Repository(PrgState.of(new NopStmt()), log.toString()).logPrgStateExec();
-        assertEquals("ExeStack:\nnop\nSymTable:\nOut:\nFileTable:\n\n", Files.readString(log));
+        assertEquals("ExeStack:\nnop\nSymTable:\nOut:\nFileTable:\nHeap:\n\n", Files.readString(log));
     }
 
     @Test
